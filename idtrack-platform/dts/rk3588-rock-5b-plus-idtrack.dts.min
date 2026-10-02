@@ -1,0 +1,19 @@
+/dts-v1/;
+
+#include "rk3588-rock-5b-plus.dts"
+
+/ {
+    model = "Radxa ROCK5B+ IDTrack Platform";
+    compatible = "radxa,rock5b-plus-idtrack", "radxa,rock-5b-plus", "rockchip,rk3588";
+
+};
+
+/* UARTs */
+
+&uart3 {
+    status = "okay";
+};
+
+&uart7 {
+    status = "okay";
+};

@@ -1,0 +1,28 @@
+/dts-v1/;
+
+#include "rk3588-rock-5b-plus.dts"
+
+/ {
+    model = "Radxa ROCK5B+ IDTrack Platform";
+    compatible = "radxa,rock5b-plus-idtrack", "radxa,rock-5b-plus", "rockchip,rk3588";
+};
+
+&uart3 {
+    status = "okay";
+};
+
+&uart7 {
+    status = "okay";
+};
+
+&pinctrl {
+    idtrack_gpio_pins: idtrack-gpio-pins {
+        rockchip,pins =
+            <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PC4 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
+    };
+};

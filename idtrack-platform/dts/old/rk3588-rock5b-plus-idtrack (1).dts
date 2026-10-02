@@ -1,0 +1,48 @@
+/dts-v1/;
+
+/include/ "rk3588-rock5b-plus-base.dts"
+
+/ {
+    model = "Radxa ROCK5B+ IDTrack Platform";
+    compatible = "radxa,rock5b-plus-idtrack", "radxa,rock5b-plus", "rockchip,rk3588";
+
+    idtrack_gpio {
+
+        compatible = "idtrack,gpio-config";
+    
+        input-gpios =
+            <&gpio4 22 GPIO_ACTIVE_HIGH>,   /* gpio150 */
+            <&gpio1 31 GPIO_ACTIVE_HIGH>,   /* gpio63 */
+            <&gpio1 15 GPIO_ACTIVE_HIGH>,   /* gpio47 */
+            <&gpio3 7 GPIO_ACTIVE_HIGH>;    /* gpio103 */
+
+        output-gpios =
+            <&gpio4 20 GPIO_ACTIVE_HIGH>,   /* gpio148 */
+            <&gpio3 18 GPIO_ACTIVE_HIGH>,   /* gpio114 */
+            <&gpio3 11 GPIO_ACTIVE_HIGH>,   /* gpio107 */
+            <&gpio3 4 GPIO_ACTIVE_HIGH>,    /* gpio100 */
+            <&gpio3 10 GPIO_ACTIVE_HIGH>,   /* gpio106 */
+            <&gpio3 9 GPIO_ACTIVE_HIGH>,    /* gpio105 */
+            <&gpio4 11 GPIO_ACTIVE_HIGH>,   /* gpio139 */
+            <&gpio4 10 GPIO_ACTIVE_HIGH>,   /* gpio138 */
+            <&gpio3 19 GPIO_ACTIVE_HIGH>;   /* gpio115 */
+    };
+
+    &uart2 {
+        status = "okay";
+    };
+
+    &uart3 {
+        status = "okay";
+    };
+
+    &uart7 {
+        status = "okay";
+    };
+
+    &hdmirx_ctrler {
+        status = "disabled";
+    };
+
+}
+

@@ -1,0 +1,45 @@
+/dts-v1/;
+
+#include "rk3588-rock-5b-plus.dts"
+
+/ {
+    model = "Radxa ROCK5B+ IDTrack Platform";
+    compatible = "radxa,rock5b-plus-idtrack", "radxa,rock-5b-plus", "rockchip,rk3588";
+
+    idtrack_gpio: idtrack-gpios {
+        compatible = "idtrack,gpio-config";
+
+        input-gpios = <
+            &gpio4 22 0
+            &gpio1 31 0
+            &gpio1 15 0
+            &gpio3 7 0
+        >;
+
+        output-gpios = <
+            &gpio4 20 0
+            &gpio3 18 0
+            &gpio3 11 0
+            &gpio3 4 0
+            &gpio3 10 0
+            &gpio3 9 0
+            &gpio4 11 0
+            &gpio4 10 0
+            &gpio3 19 0
+        >;
+    };
+};
+
+/* UARTs */
+
+&uart2 {
+    status = "okay";
+};
+
+&uart3 {
+    status = "okay";
+};
+
+&uart7 {
+    status = "okay";
+};

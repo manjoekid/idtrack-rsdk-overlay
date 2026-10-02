@@ -1,0 +1,64 @@
+/dts-v1/;
+
+#include "rk3588-rock-5b-plus.dts"
+
+/ {
+    model = "Radxa ROCK5B+ IDTrack Platform";
+    compatible = "radxa,rock5b-plus-idtrack", "radxa,rock-5b-plus", "rockchip,rk3588";
+
+    /* =========================
+     * NÓ PRINCIPAL DO SEU PROJETO
+     * ========================= */
+    idtrack_gpio {
+        compatible = "idtrack,gpio";
+        status = "okay";
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&idtrack_gpio1 &idtrack_gpio3 &idtrack_gpio4>;
+    };
+};
+
+/* =========================
+ * UARTs
+ * ========================= */
+
+&uart3 {
+    status = "okay";
+};
+
+&uart7 {
+    status = "okay";
+};
+
+/* =========================
+ * PINCTRL (ISOLADO)
+ * ========================= */
+
+&pinctrl {
+
+    idtrack_gpio1: idtrack-gpio1 {
+        rockchip,pins =
+            <1 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>,
+            <1 RK_PD7 RK_FUNC_GPIO &pcfg_pull_up>;
+    };
+
+    idtrack_gpio3: idtrack-gpio3 {
+        rockchip,pins =
+            <3 RK_PA4 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PC2 RK_FUNC_GPIO &pcfg_pull_up>,
+            <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_up>;
+    };
+
+    idtrack_gpio4: idtrack-gpio4 {
+        rockchip,pins =
+            <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PC4 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>,
+            <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
+    };
+};

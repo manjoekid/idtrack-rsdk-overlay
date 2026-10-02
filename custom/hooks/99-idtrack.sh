@@ -55,6 +55,28 @@ fi
 # Aplicar DTB
 cp "$CUSTOM_DTB" "$DTB_PATH"
 
+DTB_PATH="$KERNEL_DIR/rockchip/rk3588-rock-5b.dtb"
+CUSTOM_DTB="$ROOTFS/boot/rk3588-rock-5b-idtrack.dtb"
+
+# Verificar DTB custom
+if [ ! -f "$CUSTOM_DTB" ]; then
+    echo "❌ Custom DTB not found at $CUSTOM_DTB"
+    exit 1
+fi
+
+# Garantir diretório
+mkdir -p "$(dirname "$DTB_PATH")"
+
+# Backup
+if [ -f "$DTB_PATH" ]; then
+    cp "$DTB_PATH" "$DTB_PATH.bkp"
+fi
+
+# Aplicar DTB
+cp "$CUSTOM_DTB" "$DTB_PATH"
+
+
+
 echo "✅ DTB installed"
 
 echo "🎯 IDTrack customization completed"

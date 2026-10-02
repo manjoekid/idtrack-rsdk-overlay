@@ -1,0 +1,37 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+
+    compatible = "rockchip,rk3588";
+
+    fragment@0 {
+        target-path = "/";
+
+        __overlay__ {
+
+            idtrack_gpio: idtrack-gpios {
+                compatible = "idtrack,gpio-config";
+
+                input-gpios =
+                    <&{/pinctrl/gpio@fec50000} 22 0>,   /* gpio150 */
+                    <&{/pinctrl/gpio@fec20000} 31 0>,   /* gpio63 */
+                    <&{/pinctrl/gpio@fec20000} 15 0>,   /* gpio47 */
+                    <&{/pinctrl/gpio@fec40000} 7 0>;    /* gpio103 */
+
+                output-gpios =
+                    <&{/pinctrl/gpio@fec50000} 20 0>,   /* gpio148 */
+                    <&{/pinctrl/gpio@fec40000} 18 0>,   /* gpio114 */
+                    <&{/pinctrl/gpio@fec40000} 11 0>,   /* gpio107 */
+                    <&{/pinctrl/gpio@fec40000} 4 0>,    /* gpio100 */
+                    <&{/pinctrl/gpio@fec40000} 10 0>,   /* gpio106 */
+                    <&{/pinctrl/gpio@fec40000} 9 0>,    /* gpio105 */
+                    <&{/pinctrl/gpio@fec50000} 11 0>,   /* gpio139 */
+                    <&{/pinctrl/gpio@fec50000} 10 0>,   /* gpio138 */
+                    <&{/pinctrl/gpio@fec40000} 19 0>;   /* gpio115 */
+            };
+
+        };
+    };
+
+};
